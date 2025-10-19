@@ -1,0 +1,12 @@
+B1:Nhập số phần tử muốn tính(n) và nhập dãy số vào mảng A.
+B2:Viết hàm tính UCLN và BCNN của 2 số a, b:
+    + GCD(a, b);
+    + LCM(a, b);
+B3:Tính UCLN và BCNN của 2 số đầu tiên trong dãy:
+    + UCLN = GCD(A[0], A[1]);
+    + BCNN = GCD(A[0], A[1]);
+B4:Tính UCLN và BCNN của kết quả vừa thu được với số tiếp theo và lặp lại cho đến hết dãy số:
+    Cho i chạy từ 2 tới n - 1:
+        - UCLN = GCD(UCLN, A[i]); 
+        - BCNN = LCM(BCNN, A[i]);
+B5: In ra kết quả.

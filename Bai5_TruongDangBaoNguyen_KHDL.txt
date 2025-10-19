@@ -1,0 +1,10 @@
+B1: Viết hàm tính ước số chung lớn nhất của 2 số:
+    + Nếu (a > b) thì a = a - b và ngược lại nếu (a < b) thì b = b - a.
+    + Lặp lại cho đến khi nào a = b.
+    + Trả lại giá trị a là UCLN của 2 số a, b.
+B2: Đọc 2 giá trị đầu tiên của dãy số và tính ước só chung lớn nhất bằng hàm vừa viết.
+B3: Tính ước số chung lớn nhất của giá trị vừa thu được ở B3 và giá trị tiếp theo trong dãy:
+    +UCLN(a, b, c) = UCLN(UCLN(a, b), c);
+B4: Lặp lại bước 4 cho tới khi hết dãy số.
+B5: In ra kết quả vừa thu được.
+

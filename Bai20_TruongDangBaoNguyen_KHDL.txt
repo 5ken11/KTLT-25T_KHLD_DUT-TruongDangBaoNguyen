@@ -1,0 +1,6 @@
+B1:Nhập số n.
+B2:Tính giá trị n^2: ans = n * n.
+B3:Phân tích n thành các chữ số:
+    Chia lấy dư n với 10 cho tới khi n == 0 thì dừng. (temp = n % 10; n = n / 10);
+    Tính tổng lập phương các chữ số của n: result += temp*temp*temp;
+B4:So sánh ans và result để đưa ra kết quả.

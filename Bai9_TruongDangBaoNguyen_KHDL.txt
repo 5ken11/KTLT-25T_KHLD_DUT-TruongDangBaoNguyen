@@ -1,0 +1,4 @@
+B1: Tính từ trái sang phải dãy số theo công thức S = S + 1/i nếu i lẻ và S = S - 1/i nếu i chẵn với i chạy từ 1 tới 10000.
+B2: Tính từ phải sang trái dãy số theo công thức S = S + 1/i nếu i lẻ và S = S - 1/i nếu i chẵn với i chạy từ 10000 về 1.
+B3: Tính tống s1 = s1 + 1/i với i lẻ và s2 = s2 + 1/i với i chẵn khi cho i chạy từ 1 tới 100000.
+B4: In ra các kết quả của câu a, b, c và so sánh kết quả câu b và c rồi rút ra nhận xét.
