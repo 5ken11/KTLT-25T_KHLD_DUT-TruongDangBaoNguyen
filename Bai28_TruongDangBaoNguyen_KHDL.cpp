@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-long long GCD(long long a, long long b){            //Tính UCLN của 2 số.
-    if (b == 0) return llabs(a);
-    return GCD(b, a % b);
+long long GCD(long long a, long long b){            //Tính UCLN của 2 số theo thuật toán Euclid.
+    while(b != 0){
+        long long temp;
+        temp = a;
+        a = b;
+        b = temp % b;
+    }
+    return llabs(a);
 }
 long long LCM(long long a, long long b){            // Tính BCNN của 2 số.
     long long ans = GCD(a, b);
@@ -26,8 +31,8 @@ int solve(){
                 BCNN = t;
             }
             else{
-                UCLN = GCD(UCLN, t);                //Tính UCLN của n số.
-                BCNN = LCM(BCNN, t);                //Tính BCNN của n số
+                UCLN = GCD(UCLN, t);                //Tính UCLN theo công thức UCLN(a1, a2, a3, ..., an) = UCLN(UCLN(a1, a2, a3, ..., an-1), an);
+                BCNN = LCM(BCNN, t);                //Tính BCNN theo công thức BCNN(a1, a2, a3, ..., an) = BCNN(BCNN(a1, a2, a3, ..., an-1), an);
             }
             n++;
         }
@@ -43,3 +48,4 @@ int main(){
     solve();
     return 0;
 }
+
