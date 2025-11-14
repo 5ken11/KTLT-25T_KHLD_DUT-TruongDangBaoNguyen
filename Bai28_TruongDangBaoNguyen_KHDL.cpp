@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-long long GCD(long long a, long long b){            //Tính UCLN của 2 số theo thuật toán Euclid.
+#define max 1000006
+char A[max + 1];
+long long B[max + 1];
+long long GCD(long long a, long long b){        
     while(b != 0){
         long long temp;
         temp = a;
@@ -10,7 +13,7 @@ long long GCD(long long a, long long b){            //Tính UCLN của 2 số th
     }
     return llabs(a);
 }
-long long LCM(long long a, long long b){            // Tính BCNN của 2 số.
+long long LCM(long long a, long long b){            
     long long ans = GCD(a, b);
     return llabs(a/ans) * llabs(b);
 }
@@ -19,30 +22,33 @@ int solve(){
     long long BCNN = 0;
     long long n = 0;
     long long t;
-    while (scanf("%lld", &t) == 1){                   //Đọc số trong dãy cho đến khi hết dữ liệu.
-        if(t == 0) {                                //Nếu đọc được 0 -> Không có UCLN và BCNN
+    fgets(A, sizeof(A), stdin);
+    char *tmp = A;
+    long long c = 0;
+    while (sscanf(tmp,"%lld%n", &t, &n) == 1){                   
+        if(t == 0) {                                
             printf("Day so khong co UCLN va BCNN.");
             return 0;
         }
-        else{
-            t = llabs(t);                           //Lấy giá trị tuyệt đối(Cho trường hợp số âm).
-            if(n == 0){
-                UCLN = t;                           //Khi chỉ đọc giá trị đầu tiên, UCLN và BCNN = chính giá trị đó.
-                BCNN = t;
-            }
-            else{
-                UCLN = GCD(UCLN, t);                //Tính UCLN theo công thức UCLN(a1, a2, a3, ..., an) = UCLN(UCLN(a1, a2, a3, ..., an-1), an);
-                BCNN = LCM(BCNN, t);                //Tính BCNN theo công thức BCNN(a1, a2, a3, ..., an) = BCNN(BCNN(a1, a2, a3, ..., an-1), an);
-            }
-            n++;
-        }
+        B[c] = t;
+        c++;
+        tmp += n;
     }
-    if (n == 0) printf("Day so khong co UCLN va BCNN.");               //In kết quả.
+    if(c == 0){
+        printf("Khong co UCLN va BCNN");
+        return 0;
+    }
     else{
-        printf("Uoc chung lon nhat cua day so la: %lld\n", UCLN);
-        printf("Boi chung nho nhat cua day so la: %lld\n", BCNN);
+        UCLN = B[0];
+        BCNN = B[0];
+        for(int i = 1; i < c; i++){
+            printf("%lld\n", B[i]);
+            UCLN = GCD(UCLN, B[i]);
+            BCNN = LCM(BCNN, B[i]);
+        }
+        printf("UCLN:%lld\nBCNN:%lld", UCLN, BCNN);
+        return 0;
     }
-    return 0;
 }
 int main(){
     solve();
